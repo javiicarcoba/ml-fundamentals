@@ -1,5 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from pathlib import Path
+import pandas as pd
+import src.utils as utils
 
 def z_score_norm(X):
     mu = np.mean(X, axis=0)
@@ -57,8 +60,14 @@ def choose_learning_rate():
 def choose_regularization():
     pass
 
-def model_training():
-    pass
+def model_training(filename):
+    file_path = Path.cwd() / "data" / filename
+
+    df = pd.read_csv(file_path)
+    train, cv, test = split_dataset(df)
+
+
+     
 
 def predict():
     pass
